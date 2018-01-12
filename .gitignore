@@ -1,0 +1,11 @@
+/.project
+/.settings/
+/.idea
+/deploy
+/target
+/build/
+/**/.idea
+*.iml
+/logs/*
+out/
+.DS_Store

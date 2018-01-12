@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <context:property-placeholder location="classpath:twitbot.properties" />
+
+    <context:annotation-config />
+
+    <beans>
+        <bean id="twit" class="org.twitbot.Twit">
+
+            <property name="OAUTH_CONSUMER_KEY" value="${twibot_oauth_consumer_key}"/>
+            <property name="OAUTH_CONSUMER_SECRET" value="${twibot_oauth_consumer_secret}"/>
+            <property name="OAUTH_ACCESS_TOKEN" value="${twibot_oauth_access_token}"/>
+            <property name="OAUTH_ACCESS_TOKEN_SECRET" value="${twitbot_oauth_access_token_secret}"/>
+
+        </bean>
+        <bean id="checkGit" class="org.twitbot.GitHubChecker">
+            <property name="url" value="https://api.github.com/repos/RoySRose/TwitterBot/releases/latest"/>
+        </bean>
+    </beans>
+
+
+
+</beans>
